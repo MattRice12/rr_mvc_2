@@ -25,14 +25,14 @@ module App
   end
 
   def App.posts
-    (1..2).map do
+    @posts ||= (1..4).map do
       Post.new(
         Faker::StarWars.character,  Faker::Hipster.word.capitalize, Faker::Hipster.sentence(5), "Published")
     end
   end
 
   def App.comments
-    (1..4).map do
+    @comments ||= (1..5).map do
       Comment.new(
         Faker::SlackEmoji.people,
         Faker::StarWars.character)

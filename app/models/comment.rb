@@ -9,7 +9,7 @@ class Comment
     @id = set_id
     @message = message
     @author = author
-    @post_id = rand(1..2)
+    @post_id = rand(1..4)
   end
 
 
