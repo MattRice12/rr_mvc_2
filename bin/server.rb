@@ -5,6 +5,7 @@ require 'uri'
 require 'erb'
 require 'json'
 require 'pry'
+require 'faker'
 require_relative '../config/path'
 require_relative '../config/router'
 require_relative '../config/app_router'
@@ -16,11 +17,26 @@ module App
   def App.tweets
     # This is an example
     @all_tweets ||= [
-      { message: "cool tweet!", id: 1},
+      { message: Faker::Hipster.paragraph(2, true), id: 1},
       { message: "badd tweet!", id: 2},
       { message: "ohno tweet!", id: 3},
       { message: "eehhh tweet", id: 4},
     ]
+  end
+
+  def App.posts
+    (1..2).map do
+      Post.new(
+        Faker::StarWars.character,  Faker::Hipster.word.capitalize, Faker::Hipster.sentence(5), "Published")
+    end
+  end
+
+  def App.comments
+    (1..4).map do
+      Comment.new(
+        Faker::SlackEmoji.people,
+        Faker::StarWars.character)
+    end
   end
 end
 

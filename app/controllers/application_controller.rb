@@ -47,4 +47,8 @@ class ApplicationController
       as: opts.fetch(:as, "application/json")
     }
   end
+
+  def id
+    params[:id]
+  end
 end

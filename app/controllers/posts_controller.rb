@@ -1,11 +1,11 @@
-require_relative '../models/post'
 
-
-class PostsController <ApplicationController
-# As a user of the site, I should be able to see all the posts from the root url ("/"). (The same data that would be on the posts#index).
-
+class PostsController < ApplicationController
   def index
-    render Post.all.to_json, status: "200 OK"
+    render App.posts.to_json, status: "200 OK"
+  end
+
+  def show
+    render App.posts[params[:id].to_i - 1].to_json, status: "200 OK"
   end
 
 
@@ -30,3 +30,6 @@ class PostsController <ApplicationController
   #   end
   # end
 end
+
+
+# As a user of the site, I should be able to see all the posts from the root url ("/"). (The same data that would be on the posts#index).

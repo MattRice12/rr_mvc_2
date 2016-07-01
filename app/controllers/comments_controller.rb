@@ -1,7 +1,10 @@
-require_relative '../models/comment'
 
-class CommentsController <ApplicationController
-  def show_comments
+class CommentsController < ApplicationController
+  def index
+    render App.comments.to_json, status: "200 OK"
+  end
 
+  def show
+    render App.comments[params[:id].to_i - 1].to_json, status: "200 OK"
   end
 end
