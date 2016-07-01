@@ -40,6 +40,9 @@ module App
   end
 end
 
+App.posts
+App.comments
+
 system('clear')
 
 def start_custom_webbrick_server

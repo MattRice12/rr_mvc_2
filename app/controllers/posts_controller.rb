@@ -8,6 +8,12 @@ class PostsController < ApplicationController
     render App.posts[params[:id].to_i - 1].to_json, status: "200 OK"
   end
 
+  def create
+    post = Post.new(params["title"], params["author"], params["body"],
+                     params["published_field"])
+    App.posts.push(post)
+    redirect_to "post/#{post.id}"
+  end
 
 
   # def index
@@ -31,5 +37,4 @@ class PostsController < ApplicationController
   # end
 end
 
-
-# As a user of the site, I should be able to see all the posts from the root url ("/"). (The same data that would be on the posts#index).
+# As a user of the site, I should be able to create a new comment by filling in the body and specifying the post_id.
