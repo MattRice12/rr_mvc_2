@@ -5,11 +5,11 @@ require_relative '../models/post'
 
 class Comment
   attr_accessor :id, :message, :author, :post_id
-  def initialize(message, author)
+  def initialize(message, author, post_id)
     @id = set_id
     @message = message
     @author = author
-    @post_id = rand(1..4)
+    @post_id = post_id
   end
 
 

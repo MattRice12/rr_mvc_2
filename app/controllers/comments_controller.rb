@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    comment = Comment.new(params["message"], params["author"])
+    comment = Comment.new(params["message"], params["author"], params["post_id"].to_i)
     App.comments.push(comment)
     redirect_to "comment/#{comment.id}"
   end

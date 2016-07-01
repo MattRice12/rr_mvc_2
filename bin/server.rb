@@ -35,7 +35,8 @@ module App
     @comments ||= (1..5).map do
       Comment.new(
         Faker::SlackEmoji.people,
-        Faker::StarWars.character)
+        Faker::StarWars.character,
+        rand(1..4))
     end
   end
 end
