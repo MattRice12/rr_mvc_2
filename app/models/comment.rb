@@ -1,14 +1,20 @@
-# Create a Comment class. Comments should have an id, message, author, and post_id field.
-# The post_id field will be the id of the Post that this comment "belongs to".
-# This will be used for "linking" the two pieces of data together.
+
+# each comment has a user id. This is so can link the comment's user id with the post's user id.
+
 
 class Comment
   attr_accessor :id, :message, :author, :post_id
   def initialize(id, message, author, post_id)
-    @id = id
+    @id = set_id
     @message = message
     @author = author
     @post_id = post_id
+  end
+
+  def Comment.all
+    [
+      Comment.new(@id, "First", "Dickface", Post.new.id), #gets.chomp?
+    ]
   end
 
   def set_id
