@@ -27,7 +27,7 @@ module App
   def App.posts
     @posts ||= (1..4).map do
       Post.new(
-        Faker::StarWars.character,  Faker::Hipster.word.capitalize, Faker::Hipster.sentence(5), "Published")
+        Faker::StarWars.character,  Faker::Hipster.word.capitalize, Faker::Hipster.sentence(5), @published_field)
     end
   end
 

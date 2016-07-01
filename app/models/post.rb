@@ -9,7 +9,12 @@ class Post
     @title = title
     @author = author
     @body = body
-    @published_field = published_field
+
+    if published_field == nil
+      @published_field = false
+    else
+      @published_field = published_field
+    end
   end
 
   def set_id
