@@ -4,18 +4,21 @@ class PostsController < ApplicationController
     if params.keys[0] == "page"
       render App.posts[((page - 1) * 10)..((page * 10) - 1)].to_json, status: "200 OK"
     else
-      render App.posts.to_json, status: "200 OK"
+      render App.posts[0..9].to_json, status: "200 OK"
     end
 
 
-  
+
     # pp = App.posts.map { |a| a.to_json[0..300] }
     # render pp.to_json, status: "200 OK"
 
-    # For some reason, the parser is storing "page" as a string rather than a symbol. I compared this with Wednesday's assignment, which stored "page" as a symbol. The parser says it stores "page" as a symbol => params.store(k.to_sym, v)... however, it's not doing this at all. Substituting in Wednesday's parser does not change the result. I really can't figure out why it's storing "page" as a string rather than a symbol... so this is why my index looks the way it does.
+    # For some reason, the parser is storing "page" as a string rather than a symbol. I compared this with Wednesday's assignment, which stored "page" as a symbol. This weekend's parser says it stores "page" as a symbol => params.store(k.to_sym, v)... however, it's not doing this at all. Substituting in Wednesday's parser does not change the result. I really can't figure out why it's storing "page" as a string rather than a symbol... so this is why my index looks the way it does.
     # render params.values[0].to_json, status: "200 OK"
+    # to test: puts @request[:params]
+      # try this with both this weekend's assignment and Wednesday's assignment. You'll see that 'pages' is stored differently.
 
-# http://localhost:3001/posts?page=1
+
+      # Only display the first 300 characters from each blog post on the index page.
   end
 
   def show
