@@ -25,18 +25,21 @@ module App
   end
 
   def App.posts
-    @posts ||= (1..4).map do
+    @posts ||= (1..30).map do
       Post.new(
-        Faker::StarWars.character,  Faker::Hipster.word.capitalize, Faker::Hipster.sentence(5), @published_field)
+        Faker::StarWars.character,
+        Faker::Hipster.word.capitalize,
+        Faker::Hipster.sentence(5).capitalize,
+        @published_field)
     end
   end
 
   def App.comments
-    @comments ||= (1..5).map do
+    @comments ||= (1..50).map do
       Comment.new(
         Faker::SlackEmoji.people,
         Faker::StarWars.character,
-        rand(1..4))
+        rand(1..30))
     end
   end
 end
@@ -55,6 +58,7 @@ def start_custom_webbrick_server
 
   puts "The server is running and awaiting requests at http://localhost:3001/"
   server.start
+
 end
 
 def start_custom_tcp_server
