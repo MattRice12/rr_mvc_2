@@ -84,5 +84,3 @@ class NullPath
     { body: '', status: "404 NOT FOUND" }
   end
 end
-
-

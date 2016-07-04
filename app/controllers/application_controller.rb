@@ -51,4 +51,8 @@ class ApplicationController
   def id
     params[:id]
   end
+
+  def page
+    params.values[0].to_i
+  end
 end
