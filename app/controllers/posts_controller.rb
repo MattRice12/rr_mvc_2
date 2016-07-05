@@ -39,8 +39,3 @@ class PostsController < ApplicationController
     redirect_to "posts/#{post.id}"
   end
 end
-
-# Add a new route /posts/1/comments that displays only the comments for that post.
-
-# Have two pages for posts, one with all the published posts, and one with all the unpublished posts.
-# /posts/published
