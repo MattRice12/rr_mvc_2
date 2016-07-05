@@ -52,7 +52,23 @@ class ApplicationController
     params[:id]
   end
 
+  def action
+    params[:action]
+  end
+
   def page
     params.values[0].to_i
+  end
+
+  def all_posts
+    App.posts
+  end
+
+  def all_comments
+    App.comments
+  end
+
+  def ten_per_page
+    ((page - 1) * 10)..((page * 10) - 1)
   end
 end
