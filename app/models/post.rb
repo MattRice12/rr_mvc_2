@@ -12,8 +12,10 @@ class Post
 
     if published_field == nil
       @published_field = false
-    else
-      @published_field = published_field
+    elsif published_field == 1
+      @published_field = false
+    else # I intentionally set this to return "Published" if the field is filled with anything.
+      @published_field = "Published"
     end
   end
 

@@ -48,6 +48,8 @@ class ApplicationController
     }
   end
 
+private
+
   def id
     params[:id]
   end

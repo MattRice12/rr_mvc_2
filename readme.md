@@ -28,6 +28,16 @@ http://localhost:3000/posts?page=1
 http://localhost:3000/posts?page=2
 etc
 
+##Displays all published posts and child comments
+http://localhost:3000/posts/published
+
+##Displays all unpublished posts and child comments
+http://localhost:3000/posts/unpublished
+
+##Typing in an incorrect action redirects page to /posts/id
+http://localhost:3000/posts/1/asdf
+
+
 ##Can create new posts (post_id generates at next unused post_id)
 ##Can create new comments
 ##Can specify which post you want comments to fall under

@@ -30,7 +30,7 @@ module App
         Faker::StarWars.character,
         Faker::Hipster.word.capitalize,
         Faker::Hipster.sentence(5).capitalize,
-        @published_field)
+        rand(1..2))
     end
   end
 
