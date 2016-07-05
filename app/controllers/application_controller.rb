@@ -58,8 +58,8 @@ private
     params[:action]
   end
 
-  def page
-    params.values[0].to_i
+  def page #page stored as a string instead of a symbol.... the parser says it should store as a symbol but it doesn't. What's going on here?
+    params["page"]
   end
 
   def all_posts
@@ -71,6 +71,6 @@ private
   end
 
   def ten_per_page
-    ((page - 1) * 10)..((page * 10) - 1)
+    ((page.to_i - 1) * 10)..((page.to_i * 10) - 1)
   end
 end
